@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
-Input.PropTypes = {
+Input.propTypes = {
     type: PropTypes.oneOf(["text", "email", "password", "number", "file"]),
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
