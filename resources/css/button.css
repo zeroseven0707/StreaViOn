@@ -1,0 +1,15 @@
+.btn-primary {
+    @apply bg-cyan-800 text-white;
+}
+.btn-warning {
+    @apply bg-yellow-500 text-white;
+}
+.btn-danger {
+    @apply bg-red-500 text-white;
+}
+.btn-light-outline {
+    @apply text-white border border-white;
+}
+.btn-white-outline {
+    @apply border border-[#f1f1f1] text-black;
+}
