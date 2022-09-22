@@ -15,12 +15,10 @@ use Inertia\Inertia;
 |
 */
 
-Route::redirect('/','/prototype/login');
-
+Route::redirect('/','/login');
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::prefix('prototype')->name('prototype.')->group(function(){
     route::get('/login', function(){
         return Inertia::render('Prototype/Login');
