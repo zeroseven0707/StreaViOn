@@ -20,7 +20,7 @@ export default function SubscriptionCard({
                             IDR {price.toLocaleString()}
                         </div>
                         <p className="text-gray-1 text-xs font-light">
-                            /{durationInMonth} months
+                            {durationInMonth} months
                         </p>
                     </div>
 
@@ -64,7 +64,7 @@ export default function SubscriptionCard({
                             IDR {price.toLocaleString()}
                         </div>
                         <p className="text-[#767676] text-xs font-light">
-                            /{durationInMonth} months
+                            {durationInMonth} months
                         </p>
                     </div>
 
@@ -105,8 +105,7 @@ export default function SubscriptionCard({
 
                     {/* Bottom: CTA Button */}
                     <div onClick={onSelectSubscription}>
-                        <Button
-                        type="button">
+                        <Button type="button">
                             <span className="text-base font-semibold">
                                 Subscribe Now
                             </span>

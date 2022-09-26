@@ -1,15 +1,15 @@
 import Sidebar from "@/layouts/Authenticated/Sidebar";
 import Topbar from "@/layouts/Authenticated/Topbar";
 
-export default function Authenticated({ children }) {
+export default function Authenticated({ auth, children }) {
     return (
         <>
-            <Sidebar/>
+            <Sidebar />
             <div className="mx-auto max-w-screen hidden lg:block">
                 {/* // START: Content */}
                 <div className="ml-[300px] px-[50px]">
                     <div className="py-10 flex flex-col gap-[50px]">
-                       <Topbar />
+                        <Topbar name={auth.user.name} />
                         <main>{children}</main>
                     </div>
                 </div>

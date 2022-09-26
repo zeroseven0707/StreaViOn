@@ -4,16 +4,16 @@ import { Head } from "@inertiajs/inertia-react";
 import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
 
-const flickityOptions = {
-    cellAlign: "left",
-    contain: true,
-    groupCells: 1,
-    wrapAround: false,
-    pageDots: false,
-    prevNextButtons: false,
-    draggable: ">1",
-};
-export default function Dashboard({ auth, movies, featuredMovies }) {
+export default function Dashboard({ auth, featuredMovies, movies }) {
+    const flickityOptions = {
+        cellAlign: "left",
+        contain: true,
+        groupCells: 1,
+        wrapAround: false,
+        pageDots: false,
+        prevNextButtons: false,
+        draggable: ">1",
+    };
     return (
         <Authenticated auth={auth}>
             <Head>
@@ -36,7 +36,7 @@ export default function Dashboard({ auth, movies, featuredMovies }) {
                             name={featuredMovie.name}
                             category={featuredMovie.category}
                             thumbnail={featuredMovie.thumbnail}
-                            rating={1}
+                            rating={featuredMovie.rating}
                         />
                     ))}
                 </Flickity>
@@ -46,13 +46,13 @@ export default function Dashboard({ auth, movies, featuredMovies }) {
                     Browse
                 </div>
                 <Flickity className="gap-[30px]" options={flickityOptions}>
-                    {movies.map((Movie) => (
+                    {movies.map((movie) => (
                         <MovieCard
-                            key={Movie.id}
-                            slug={Movie.slug}
-                            name={Movie.name}
-                            category={Movie.category}
-                            thumbnail={Movie.thumbnail}
+                            key={movie.id}
+                            slug={movie.slug}
+                            name={movie.name}
+                            category={movie.category}
+                            thumbnail={movie.thumbnail}
                         />
                     ))}
                 </Flickity>

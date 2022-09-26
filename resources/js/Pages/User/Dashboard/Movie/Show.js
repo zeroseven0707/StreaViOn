@@ -1,6 +1,6 @@
 import ReactPlayer from "react-player";
 import { Link } from "@inertiajs/inertia-react";
-export default function Show({movie}) {
+export default function Show({ movie }) {
     return (
         <section
             className="mx-auto w-screen relative watching-page font-poppins bg-form-bg h-screen"

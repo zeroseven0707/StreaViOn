@@ -11,12 +11,12 @@ use App\Models\Movie;
 class DashboardController extends Controller
 {
     public function index(){
-        $featuredmovie = Movie::whereIsfeatured(true)->get();
-        $movie = Movie::all();
+        $featuredMovies = Movie::whereIsfeatured(true)->get();
+        $movies = Movie::all();
         return Inertia::render('User/Dashboard/Index',
         [
-            'featuredMovies' => $featuredmovie,
-            'movies' => $movie,
+            'featuredMovies' => $featuredMovies,
+            'movies' => $movies,
         ]);
     }
 }

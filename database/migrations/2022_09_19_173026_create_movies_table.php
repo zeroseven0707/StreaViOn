@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('slug','100');
             $table->string('category','100');
             $table->string('video_url');
-            $table->string('thumbnail');
+            $table->text('thumbnail');
             $table->float('rating')->derfaul(0);
-            $table->boolean('is_featured')->derfaul(false);
+            $table->boolean('isfeatured')->derfaul(false);
             $table->timestamps();
             $table->softDeletes();
         });

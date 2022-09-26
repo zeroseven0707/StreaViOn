@@ -1,4 +1,5 @@
 import { Link } from "@inertiajs/inertia-react";
+import SubscriptionDetail from "@/Layouts/Authenticated/SubscriptionDetail";
 export default function Sidebar() {
     return (
         <aside className="fixed z-50 w-[300px] h-full">
@@ -10,7 +11,7 @@ export default function Sidebar() {
                     <div>
                         <div className="text-gray-1 text-sm mb-4">Menu</div>
                         <Link
-                            href={route("prototype.dashboard")}
+                            href={route("user.dashboard.index")}
                             className="side-link active"
                         >
                             <svg
@@ -83,7 +84,9 @@ export default function Sidebar() {
                     <div>
                         <div className="text-gray-1 side-link mb-4">Others</div>
                         <Link
-                            href={route("prototype.subscriptionPlan")}
+                            href={route(
+                                "user.dashboard.subscriptionPlan.index"
+                            )}
                             className="side-link"
                         >
                             <svg
@@ -152,7 +155,21 @@ export default function Sidebar() {
                         </a>
                     </div>
                     <div className="mt-auto pr-[30px]">
-                        <div className="p-5 bg-black rounded-[25px]">
+                        <SubscriptionDetail isPremium />
+                        {/* <div class="mt-auto pr-[30px]">
+                            <div class="p-5 bg-white rounded-[25px] outline outline-1 outline-[#f1f1f1]">
+                                <div class="text-black text-lg font-semibold mb-8">
+                                    Basic
+                                </div>
+                                <div class="text-black text-sm mb-2">
+                                    5 of 30 hari
+                                </div>
+                                <div class="rounded-full w-full h-[6px] bg-[#f1f1f1]">
+                                    <div class="rounded-full h-full w-2/12 bg-alerange"></div>
+                                </div>
+                            </div>
+                        </div> */}
+                        {/* <div className="p-5 bg-black rounded-[25px]">
                             <img src="/icons/ic_star-rounded.svg" alt="" />
                             <div className="text-white text-lg font-semibold mt-4 mb-8">
                                 For Greatest
@@ -163,7 +180,7 @@ export default function Sidebar() {
                             <div className="rounded-full w-full h-[6px] bg-[#333333]">
                                 <div className="rounded-full h-full w-9/12 bg-cyan-800"></div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

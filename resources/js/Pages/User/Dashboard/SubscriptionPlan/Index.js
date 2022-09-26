@@ -27,7 +27,7 @@ export default function SubscriptionPlan({ auth, subscriptionPlans }) {
                             name={subscriptionPlan.name}
                             price={subscriptionPlan.price}
                             durationInMonth={
-                                subscriptionPlan.active_period_in_month
+                                subscriptionPlan.active_period_in_months
                             }
                             features={JSON.parse(subscriptionPlan.features)}
                             isPremium={subscriptionPlan.name === "Premium"}
