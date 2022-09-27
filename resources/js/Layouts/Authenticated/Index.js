@@ -4,7 +4,7 @@ import Topbar from "@/layouts/Authenticated/Topbar";
 export default function Authenticated({ auth, children }) {
     return (
         <>
-            <Sidebar />
+            <Sidebar auth={auth} />
             <div className="mx-auto max-w-screen hidden lg:block">
                 {/* // START: Content */}
                 <div className="ml-[300px] px-[50px]">
