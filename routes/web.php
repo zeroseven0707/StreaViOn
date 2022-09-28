@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MovieController;
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\User\SubscriptionPlanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -27,24 +28,27 @@ Route::get('/subscription-plan', [SubscriptionPlanController::class, 'index'])->
 Route::post('/subscription-plan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscriptionPlan.userSubscribe')->middleware('checkUserSubscription:false');
 });
 
-
-
-Route::prefix('prototype')->name('prototype.')->group(function(){
-    route::get('/login', function(){
-        return Inertia::render('Login');
-    })->name('login');
-    route::get('/register', function(){
-        return Inertia::render('Prototype/Register');
-    })->name('register');
-    route::get('/dashboard', function(){
-        return Inertia::render('Prototype/Dashboard');
-    })->name('dashboard');
-    route::get('/subscriptionPlan', function(){
-        return Inertia::render('Prototype/SubscriptionPlan');
-    })->name('subscriptionPlan');
-    route::get('/movie/{slug}', function(){
-        return Inertia::render('Prototype/Movie/Show');
-    })->name('movie.show');
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group( function(){
+Route::resource('movie', AdminMovieController::class);
 });
+
+
+// Route::prefix('prototype')->name('prototype.')->group(function(){
+//     route::get('/login', function(){
+//         return Inertia::render('Login');
+//     })->name('login');
+//     route::get('/register', function(){
+//         return Inertia::render('Prototype/Register');
+//     })->name('register');
+//     route::get('/dashboard', function(){
+//         return Inertia::render('Prototype/Dashboard');
+//     })->name('dashboard');
+//     route::get('/subscriptionPlan', function(){
+//         return Inertia::render('Prototype/SubscriptionPlan');
+//     })->name('subscriptionPlan');
+//     route::get('/movie/{slug}', function(){
+//         return Inertia::render('Prototype/Movie/Show');
+//     })->name('movie.show');
+// });
 
 require __DIR__.'/auth.php';

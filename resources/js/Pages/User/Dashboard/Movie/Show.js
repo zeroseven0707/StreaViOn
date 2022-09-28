@@ -11,7 +11,7 @@ export default function Show({ movie }) {
                     url={movie.video_url}
                     controls
                     width={"100%"}
-                    height={"750px"}
+                    height={"800px"}
                 />
             </div>
 
