@@ -19,8 +19,10 @@ use Inertia\Inertia;
 |
 */
 
+// Route Midtrans
+Route::post('midtrans/notification',[SubscriptionPlanController::class, 'midtransCallback']);
 Route::redirect('/','/login');
-
+// Route User
 Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group( function(){
 Route::get('/', [DashboardController::class, 'index'])->name('index');
 Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')->middleware('checkUserSubscription:true');
@@ -28,6 +30,7 @@ Route::get('/subscription-plan', [SubscriptionPlanController::class, 'index'])->
 Route::post('/subscription-plan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'userSubscribe'])->name('subscriptionPlan.userSubscribe')->middleware('checkUserSubscription:false');
 });
 
+// Route Admin
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.dashboard.')->group( function(){
     Route::put('movie/{movie}/restore', [AdminMovieController::class, 'restore'])->name('movie.restore');
 Route::resource('movie', AdminMovieController::class);
