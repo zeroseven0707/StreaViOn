@@ -3,8 +3,13 @@ import Flickity from "react-flickity-component";
 import { Head } from "@inertiajs/inertia-react";
 import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
-
-export default function Dashboard({ auth, featuredMovies, movies }) {
+import FlashMessage from "@/Components/FlashMessage";
+export default function Dashboard({
+    auth,
+    featuredMovies,
+    movies,
+    flashMessage,
+}) {
     const flickityOptions = {
         cellAlign: "left",
         contain: true,
@@ -23,6 +28,9 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
                 />
                 <title>Dashboard</title>
             </Head>
+            {flashMessage?.message && (
+                <FlashMessage message={flashMessage.message} />
+            )}
             <div>
                 <div className="font-semibold text-[22px] text-black mb-4">
                     Featured Movies

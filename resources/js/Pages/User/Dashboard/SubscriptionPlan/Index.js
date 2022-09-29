@@ -1,7 +1,12 @@
 import Authenticated from "@/Layouts/Authenticated/Index";
 import SubscriptionCard from "@/Components/SubscriptionCard";
+import FlashMessageError from "@/Components/FlashMessageError";
 import { Inertia } from "@inertiajs/inertia";
-export default function SubscriptionPlan({ auth, subscriptionPlans }) {
+export default function SubscriptionPlan({
+    auth,
+    subscriptionPlans,
+    flashMessage,
+}) {
     const selectSubscription = (id) => {
         Inertia.post(
             route("user.dashboard.subscriptionPlan.userSubscribe", {
@@ -11,6 +16,9 @@ export default function SubscriptionPlan({ auth, subscriptionPlans }) {
     };
     return (
         <Authenticated auth={auth}>
+            {flashMessage?.message && (
+                <FlashMessageError message={flashMessage.message} />
+            )}
             <div className="py-20 flex flex-col items-center">
                 <div className="text-black font-semibold text-[26px] mb-3">
                     Pricing for Everyone

@@ -22,6 +22,9 @@ class SubscriptionPlanController extends Controller
             'payment_status' => "paid",
         ];
         $userSubscription = UserSubscription::create($data);
-        return redirect(route('user.dashboard.index'));
+        return redirect(route('user.dashboard.index'))->with([
+            'message' => "You are now subscribed",
+            'type' => "success"
+        ]);;
     }
 }

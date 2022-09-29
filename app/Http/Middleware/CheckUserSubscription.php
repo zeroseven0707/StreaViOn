@@ -17,11 +17,17 @@ class CheckUserSubscription
     public function handle(Request $request, Closure $next, $status)
     {
         if ($status == 'true' && !auth()->user()->isActive) {
-            return redirect(route('user.dashboard.subscriptionPlan.index'));
+            return redirect(route('user.dashboard.subscriptionPlan.index'))->with([
+                'message' => "You have to subscribe first",
+                'type' => "success"
+            ]);;
         }
         if ($status == 'false' && auth()->user()->isActive) {
-            return redirect(route('user.dashboard.index')
-        );
+            return redirect(route('user.dashboard.subscriptionPlan.index')
+        )->with([
+            'message' => "You have subscribed, complete the time limit, then you can subscribe again",
+            'type' => "success"
+        ]);
         }
         return $next($request);
         

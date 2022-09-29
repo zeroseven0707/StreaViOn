@@ -16,6 +16,6 @@ class Movie extends Model
         'video_url',
         'thumbnail',
         'rating',
-        'is_featured',
+        'isfeatured',
     ];
 }
